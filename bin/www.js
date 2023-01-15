@@ -23,5 +23,9 @@ const server = http.createServer(serverHandle)
 //         })
 //     }
 
+//     const url = req.url
+//     req.query = querystring.parse(url.split('?')[1])
+//     console.log(req.method)
+//     res.end(JSON.stringify(req.query))
 // })
 server.listen(PORT)
