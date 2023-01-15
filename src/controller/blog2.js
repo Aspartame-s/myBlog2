@@ -17,7 +17,19 @@ const getList = (author, keyword) => {
     ]
 }
 
+const newBlog = (blogData = {}) => {
+    return {
+        id: 3
+    }
+}
+
+const updateBlog = (id, blogData = {}) => {
+    return true
+}
+
 module.exports = {
-    getList
+    getList,
+    newBlog,
+    updateBlog
 }
 

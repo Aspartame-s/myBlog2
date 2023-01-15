@@ -4,12 +4,12 @@ const querystring = require('querystring')
 const { resolve } = require('path')
 
 const getPostData = (req) => {
-    const promise = new Promise((req, res) => {
+    const promise = new Promise((resolve, reject) => {
         if(req.method !== 'POST') {
             resolve({})
             return
         }
-        if(req.header['content-type'] !== 'application/json') {
+        if(req.headers['content-type'] !== 'application/json') {
             resolve({})
             return
         }
@@ -45,6 +45,7 @@ const severHandle = (req, res) => {
     //解析postdata
     getPostData(req).then(postdata => {
         req.body = postdata
+        // console.log(req)
         //处理blog路由
         const blogData = blogRouter(req, res)
         if(blogData) {
